@@ -23,7 +23,9 @@ const WeatherBlog: React.FC = () => {
         setError(null);
 
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=weather&apiKey=bcf9a36917b2457fb96f7fa01c064a6c`
+          `https://newsapi.org/v2/everything?q=weather&apiKey=${
+            import.meta.env.VITE_API_KEY
+          }`
         );
 
         if (!response.ok) {
