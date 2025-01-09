@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: "Quicksand", sans-serif; /* Ensure fallback to sans-serif */
+  color: #333;
+}
+
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.navbar h1 {
+  color: #f1356d;
+}
+
+.navbar .links {
+  margin-left: auto;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.navbar a:hover {
+  color: #f1356d;
+}
+
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Blog Preview */
+.blog-preview {
+  padding: 15px 20px; /* Increased padding for better spacing */
+  margin: 20px 0;
+  border: 1px solid #ddd; /* Added border for a card-like appearance */
+  border-radius: 8px;
+  background: #fff;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.blog-preview:hover {
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2); /* Slight elevation on hover */
+  background-color: #fefefe; /* Subtle background change */
+}
+
+/* Title Styling */
+.blog-preview h2 {
+  font-size: 22px; /* Slightly larger font for titles */
+  color: #f1356d; /* Accent color for titles */
+  margin-bottom: 8px;
+  font-weight: 600; /* Increased weight for emphasis */
+  transition: color 0.3s ease;
+}
+
+.blog-preview h2:hover {
+  color: #d12356; /* Slightly darker shade on hover */
+}
+
+/* Post Body Text */
+.blog-preview p {
+  font-size: 16px;
+  color: #555; /* Softer color for readability */
+  margin: 0;
+  line-height: 1.6; /* Better line spacing */
+}
+
+/* Disable Hover Effect */
+.disable-hover .blog-preview:hover {
+  box-shadow: none; /* Disable hover effect */
+  cursor: default; /* Optional: Change cursor to default */
+}
+
+/* Button Styling */
+.btn {
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
