@@ -3,7 +3,7 @@ services:
     build:
       context: .
     ports:
-      - "8081:8080"
+      - "8080:8080"
     volumes:
       - .:/app # Mount local files for development
       - /app/node_modules # Prevent conflicts
