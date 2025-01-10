@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up SSH with .pem file
+    - name: Set up SSH with PEM file
       run: |
         mkdir -p ~/.ssh
         echo "${{ secrets.EC2_PEM_KEY }}" > ~/.ssh/id_rsa
@@ -23,9 +23,21 @@ jobs:
     - name: Deploy to EC2
       run: |
         ssh -i ~/.ssh/id_rsa ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+          # Navigate to project directory
           cd /var/www/blog-react-vite
+          
+          # Pull the latest changes
           git pull origin main
+          
+          # Install dependencies
           npm install --legacy-peer-deps
+          
+          # Build the project
           npm run build
+          
+          # Ensure PM2 is installed
+          sudo npm install -g pm2
+          
+          # Restart or start the app with PM2
           pm2 restart blog-react-vite || pm2 start npm --name "blog-react-vite" -- run start
         EOF
