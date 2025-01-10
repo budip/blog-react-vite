@@ -24,7 +24,7 @@ const WeatherBlog: React.FC = () => {
 
         const response = await fetch(
           `https://newsapi.org/v2/everything?q=weather&apiKey=${
-            import.meta.env.VITE_API_KEY
+            import.meta.env.VITE_NEWS_API_KEY
           }`
         );
 

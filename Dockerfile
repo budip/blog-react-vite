@@ -1,29 +1,22 @@
-# Use the official Node.js image as the base image
-FROM node:18-alpine AS builder
+FROM node:18
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package.json and lock file
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Clean and install dependencies
+RUN rm -rf node_modules package-lock.json && npm install --legacy-peer-deps
 
-# Copy the entire project into the container
+# Copy the rest of the application
 COPY . .
 
-# Build the production version of the app
+# Build the application (if needed)
 RUN npm run build
 
-# Stage 2: Serve the application using a lightweight web server
-FROM nginx:alpine
+# Expose the application port
+EXPOSE 8080
 
-# Copy the built files from the builder stage to Nginx's web directory
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the development server
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
