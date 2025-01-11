@@ -4,7 +4,7 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <div style={{ padding: "20px" }}>
-      Under construction.... winter is cold!
+      Under construction.... winter is cold! And dark...
       {/* <WeatherBlog /> */}
     </div>
   );
